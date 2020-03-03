@@ -37,5 +37,15 @@
     <url-pattern>/student</url-pattern>
     <servlet-name>StudentDetails</servlet-name>
   </servlet-mapping>
+
+  <filter>
+    <filter-name>RollNumberFilter</filter-name>
+    <filter-class>com.java.studentrecord.RollNumberFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>RollNumberFilter</filter-name>
+    <url-pattern>/student</url-pattern>
+  </filter-mapping>
 </web-app>
         

@@ -14,13 +14,14 @@ public class StudentDetails extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
+
         studentRecord = new HashMap<String, LinkedList<String>>();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        resp.setContentType("text/html");
+       /* resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
 
         out.println("<html>");
@@ -40,7 +41,7 @@ public class StudentDetails extends HttpServlet {
         out.println("</form>");
 
         out.println("</body>");
-        out.println("</html>");
+        out.println("</html>");*/
     }
 
     @Override
