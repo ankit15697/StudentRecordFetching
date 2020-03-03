@@ -40,11 +40,20 @@
 
   <filter>
     <filter-name>RollNumberFilter</filter-name>
-    <filter-class>com.java.studentrecord.RollNumberFilter</filter-class>
+    <filter-class>com.java.validationfilter.RollNumberFilter</filter-class>
   </filter>
 
   <filter-mapping>
     <filter-name>RollNumberFilter</filter-name>
+    <url-pattern>/student</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>NameFilter</filter-name>
+    <filter-class>com.java.validationfilter.NameFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>NameFilter</filter-name>
     <url-pattern>/student</url-pattern>
   </filter-mapping>
 </web-app>

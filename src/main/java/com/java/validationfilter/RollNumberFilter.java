@@ -15,10 +15,7 @@ public class RollNumberFilter implements Filter {
         String searchRoll = servletRequest.getParameter("roll");
         PrintWriter out = servletResponse.getWriter();
         String rollNo = servletRequest.getParameter("rollNo");
-        System.out.println("Search Roll : " +searchRoll);
-        System.out.println("Register roll : "+rollNo);
         if( searchRoll !=null && isValid(searchRoll)) {
-            System.out.println("Inside filter chain :  ");
             filterChain.doFilter(servletRequest, servletResponse);
         }
         else if(searchRoll!=null){
