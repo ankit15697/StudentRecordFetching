@@ -25,7 +25,6 @@ public class RollNumberFilter implements Filter {
         }
 
         if( rollNo !=null && isValid(rollNo)) {
-            System.out.println("Inside filter chain :  ");
             filterChain.doFilter(servletRequest, servletResponse);
         }
         else if(rollNo!=null ){

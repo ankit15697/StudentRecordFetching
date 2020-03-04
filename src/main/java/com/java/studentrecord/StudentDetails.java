@@ -1,5 +1,6 @@
 package com.java.studentrecord;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ public class StudentDetails extends HttpServlet {
     public void init() throws ServletException {
 
         studentRecord = new HashMap<String, LinkedList<String>>();
+        System.out.println("Servlet started");
     }
 
     @Override
@@ -47,7 +49,10 @@ public class StudentDetails extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //super.doPost(req, resp);
+        ServletContext context =getServletContext();
+        String userName = context.getInitParameter("userName");
         String action = req.getParameter("roll");
+        resp.getWriter().write("Your user name is : " +userName+":  ");
         if(action !=null && !action.isEmpty()) {
             String rollNo  = req.getParameter("roll");
             if(studentRecord.get(rollNo) == null) {
@@ -75,4 +80,11 @@ public class StudentDetails extends HttpServlet {
             }
         }
     }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        System.out.println(this);
+    }
+
 }

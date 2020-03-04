@@ -28,7 +28,9 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
   <!-- Servlet Filters ================================================ -->
-
+  <listener>
+    <listener-class>com.java.listeners.StudentServletListener</listener-class>
+  </listener>
   <servlet>
     <servlet-name>StudentDetails</servlet-name>
     <servlet-class>com.java.studentrecord.StudentDetails</servlet-class>
@@ -56,5 +58,10 @@
     <filter-name>NameFilter</filter-name>
     <url-pattern>/student</url-pattern>
   </filter-mapping>
+  <context-param>
+    <param-name>userName</param-name>
+    <param-value> Ankit Mishra </param-value>
+  </context-param>
+
 </web-app>
         
