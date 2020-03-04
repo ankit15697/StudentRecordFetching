@@ -33,7 +33,7 @@
   </listener>
   <servlet>
     <servlet-name>StudentDetails</servlet-name>
-    <servlet-class>com.java.studentrecord.StudentDetails</servlet-class>
+    <servlet-class>com.java.servlets.StudentDetailsServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <url-pattern>/student</url-pattern>
@@ -42,7 +42,7 @@
 
   <filter>
     <filter-name>RollNumberFilter</filter-name>
-    <filter-class>com.java.validationfilter.RollNumberFilter</filter-class>
+    <filter-class>com.java.filters.RollNumberFilter</filter-class>
   </filter>
 
   <filter-mapping>
@@ -51,7 +51,7 @@
   </filter-mapping>
   <filter>
     <filter-name>NameFilter</filter-name>
-    <filter-class>com.java.validationfilter.NameFilter</filter-class>
+    <filter-class>com.java.filters.NameFilter</filter-class>
   </filter>
 
   <filter-mapping>

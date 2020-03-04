@@ -1,4 +1,4 @@
-package com.java.validationfilter;
+package com.java.filters;
 
 import javax.servlet.*;
 import java.io.IOException;
