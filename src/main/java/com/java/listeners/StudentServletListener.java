@@ -14,6 +14,7 @@ public class StudentServletListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         ServletContext servletContext = servletContextEvent.getServletContext();
+        servletContext.log("Inside listener init");
         String url = servletContext.getInitParameter("propertyUrl");
         File file = new File(url);
         FileInputStream fileInput = null;
@@ -46,5 +47,7 @@ public class StudentServletListener implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent servletContextEvent) {
+        ServletContext servletContext = servletContextEvent.getServletContext();
+        servletContext.log("Inside listener  destroy");
     }
 }
