@@ -49,6 +49,7 @@
     <filter-name>RollNumberFilter</filter-name>
     <url-pattern>/student</url-pattern>
   </filter-mapping>
+
   <filter>
     <filter-name>NameFilter</filter-name>
     <filter-class>com.java.filters.NameFilter</filter-class>
@@ -58,10 +59,24 @@
     <filter-name>NameFilter</filter-name>
     <url-pattern>/student</url-pattern>
   </filter-mapping>
+
   <context-param>
     <param-name>userName</param-name>
     <param-value> Ankit Mishra </param-value>
   </context-param>
 
+  <context-param>
+    <param-name>propertyUrl</param-name>
+    <param-value> C:\Users\ankitpmishra\Desktop\Project\Java\studentRecordServlet\properties\student.properties </param-value>
+  </context-param>
+
+  <servlet>
+    <servlet-name>PropertyReaderServlet</servlet-name>
+    <servlet-class>com.java.servlets.PropertyReaderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <url-pattern>/properties</url-pattern>
+    <servlet-name>PropertyReaderServlet</servlet-name>
+  </servlet-mapping>
 </web-app>
         

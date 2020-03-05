@@ -1,8 +1,20 @@
 package com.java.response;
+import com.fasterxml.jackson.xml.XmlMapper;
+
+import java.io.IOException;
 
 public class XMLConversion {
-    public static String convert(String result) {
-        String response = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + "<Data>" + result + "<Data>";
-        return response;
-    }
+        public static String convert(Object data) throws IOException {
+            XmlMapper mapper = new XmlMapper();
+            try
+            {
+
+                String xml = mapper.writeValueAsString(data);
+                return xml;
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
 }
