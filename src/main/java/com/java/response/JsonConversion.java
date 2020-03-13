@@ -2,9 +2,6 @@ package com.java.response;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.xml.JacksonXmlModule;
-import com.fasterxml.jackson.xml.XmlMapper;
-
 import java.io.IOException;
 
 public class JsonConversion {

@@ -1,9 +1,4 @@
 package com.java.servlets;
-
-import com.java.response.JsonConversion;
-import com.java.response.XMLConversion;
-
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,8 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
-import java.io.*;
 public class StudentDetailsServlet extends HttpServlet {
     HashMap<String, LinkedList<String>> studentRecord;
 
@@ -23,15 +16,9 @@ public class StudentDetailsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ServletContext context =getServletContext();
-        String contentType = req.getHeader("Accept");
+
         HashMap<String,String> currentData = new HashMap<String, String>();
-        String userName = context.getInitParameter("userName");
-        currentData.put("User Name",userName);
         String rollNo  = req.getParameter("roll");
-
-        req.setAttribute("contentType",contentType);
-
         if(studentRecord.get(rollNo) == null) {
 
             currentData.put("msg","No student present with this roll no");

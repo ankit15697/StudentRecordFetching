@@ -14,9 +14,15 @@ public class NameFilter implements Filter {
         RequestDispatcher rdObj = null;
 
         String regName = servletRequest.getParameter("name");
-        PrintWriter out = servletResponse.getWriter();
-        if( regName !=null && !isValid(regName)) {
-            out.print("<p id='errMsg' style='color: red; font-size: larger;'>Name is InValid</p>");
+        String searchRoll = servletRequest.getParameter("roll");
+        String contentType = (String) servletRequest.getAttribute("Accept");
+        if(regName !=null && !isValid(regName)) {
+            servletResponse.getWriter().write("Error 400 Bad Request !!! ");
+            rdObj = servletRequest.getRequestDispatcher("/index.html");
+            rdObj.include(servletRequest, servletResponse);
+        }
+        else if(regName == null && searchRoll==null) {
+            servletResponse.getWriter().write("Error 400 Bad Request !!! ");
             rdObj = servletRequest.getRequestDispatcher("/index.html");
             rdObj.include(servletRequest, servletResponse);
         }
@@ -24,7 +30,7 @@ public class NameFilter implements Filter {
             filterChain.doFilter(servletRequest, servletResponse);
         }
 
-        String contentType = (String) servletRequest.getAttribute("contentType");
+
         HashMap<String,String> currentData = (HashMap<String, String>) servletRequest.getAttribute("data");
 
         if(contentType == null) {

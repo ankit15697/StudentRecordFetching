@@ -19,16 +19,20 @@ public class RollNumberFilter implements Filter {
             filterChain.doFilter(servletRequest, servletResponse);
         }
         else if(searchRoll!=null){
-            out.print("<p id='errMsg' style='color: red; font-size: larger;'>Roll number is invalid</p>");
+            servletResponse.getWriter().write("Error 400 Bad Request !!! ");
             rdObj = servletRequest.getRequestDispatcher("/index.html");
             rdObj.include(servletRequest, servletResponse);
         }
-
-        if( rollNo !=null && isValid(rollNo)) {
+        else if( rollNo !=null && isValid(rollNo)) {
             filterChain.doFilter(servletRequest, servletResponse);
         }
         else if(rollNo!=null ){
-            out.print("<p id='errMsg' style='color: red; font-size: larger;'>Roll number is invalid</p>");
+            servletResponse.getWriter().write("Error 400 Bad Request !!! ");
+            rdObj = servletRequest.getRequestDispatcher("/index.html");
+            rdObj.include(servletRequest, servletResponse);
+        }
+        else {
+            servletResponse.getWriter().write("Error 400 Bad Request !!! ");
             rdObj = servletRequest.getRequestDispatcher("/index.html");
             rdObj.include(servletRequest, servletResponse);
         }

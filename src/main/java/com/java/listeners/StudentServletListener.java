@@ -22,18 +22,21 @@ public class StudentServletListener implements ServletContextListener {
         try {
             fileInput = new FileInputStream(file);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            servletContext.log(String.valueOf(e));
+            return;
         }
         Properties properties = new Properties();
         try {
             properties.load(fileInput);
         } catch (IOException e) {
-            e.printStackTrace();
+            servletContext.log(String.valueOf(e));
+            return;
         }
         try {
             fileInput.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            servletContext.log(String.valueOf(e));
+            return;
         }
 
         Enumeration enuKeys = properties.keys();
